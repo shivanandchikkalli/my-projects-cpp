@@ -5,3 +5,4 @@ All the c++ programs written while learning dsa
 2. Doubly Linked List
 3. Circular Linked List
 4. Stack
+5. Queue
