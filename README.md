@@ -6,3 +6,4 @@ All the c++ programs written while learning dsa
 3. Circular Linked List
 4. Stack
 5. Queue
+6. Deque
