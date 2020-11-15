@@ -8,3 +8,4 @@ All the c++ programs written while learning dsa
 5. Queue
 6. Deque
 7. Vector (Array and Linked-List Implementation)
+8. List ADT
