@@ -35,7 +35,7 @@ int main()
 
         if(userInput != -1) queue.push(tree.addLeft(temp, userInput));
 
-        std::cout << "Enter right element of " << temp->element << std::endl;
+        std::cout << "Enter right element " << temp->element << std::endl;
         std::cin >> userInput;
 
         if(userInput != -1) queue.push(tree.addRight(temp, userInput));
