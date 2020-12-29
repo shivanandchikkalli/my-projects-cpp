@@ -9,3 +9,4 @@ All the c++ programs written while learning dsa
 6. Deque
 7. Vector (Array and Linked-List Implementation)
 8. List ADT
+9. Tree
