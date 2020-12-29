@@ -27,6 +27,7 @@ class Tree
         Node* addRight(Node* node, int value);
         void printTree(Node* node) const;
         int count(Node* node) const;
+        int height(Node* node) const;
 };
 
 

@@ -45,6 +45,8 @@ int main()
     tree.printTree(tree.getRoot());
 
     std::cout << std::endl << "Count() => " << tree.count(tree.getRoot()) << std::endl;
+
+    std::cout << std::endl << "Height() => " << tree.height(tree.getRoot()) << std::endl;
     
     return 0;
 }
