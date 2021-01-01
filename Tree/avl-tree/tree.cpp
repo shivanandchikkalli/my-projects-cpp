@@ -129,7 +129,7 @@ Node* Tree::LLRotation(Node* node)
 {
     if(node != NULL)
     {
-        std::cout << "rotating around : " << node->element << std::endl;
+        std::cout << "LL Rotation around : " << node->element << std::endl;
         Node* nodeParent = node->parent;
         Node* lnode = node->left;
         Node* lrnode = lnode->right;
@@ -164,7 +164,7 @@ Node* Tree::LRRotation(Node* node)
 {
     if(node != NULL)
     {
-        std::cout << "rotating around : " << node->element << std::endl;
+        std::cout << "LR Rotation around : " << node->element << std::endl;
         Node* lnode = node->left;
         Node* lrnode  = lnode->right;
         Node* lrlnode = lrnode->left;
@@ -210,7 +210,7 @@ Node* Tree::RRRotation(Node* node)
 {
     if(node)
     {
-        std::cout << "rotating around : " << node->element << std::endl;
+        std::cout << "RR Rotation around : " << node->element << std::endl;
         Node* nodeParent = node->parent;
         Node* rnode = node->right;
         Node* rlnode = rnode->left;
@@ -247,7 +247,7 @@ Node* Tree::RLRotation(Node* node)
 {
     if(node)
     {
-        std::cout << "rotating around : " << node->element << std::endl;
+        std::cout << "RL Rotation around : " << node->element << std::endl;
         Node* rnode = node->right;
         Node* rlnode = rnode->left;
         Node* rllnode = rlnode->left;
@@ -538,8 +538,6 @@ void Tree::PostOrderDelete(Node* node)
         
     }
 }
-
-
 
 Tree::~Tree()
 {
