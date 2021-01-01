@@ -11,11 +11,6 @@ Tree::Tree()
     this->size = 0;
 };
 
-Tree::~Tree()
-{
-    // code deleting all the nodes of the tree
-};
-
 Node* Tree::getRoot() const
 {
     return this->root;
@@ -510,5 +505,45 @@ int Tree::height(Node* node) const
     return 0;
 }
 
+// This is post-order traversal
+void Tree::PostOrderDelete(Node* node)
+{
+    long long int temp;
 
+    std::stack<long long int> st;
+
+    while(!st.empty() || node != NULL)
+    {
+        if(node != NULL)
+        {
+            st.push((long long int)node);
+            node = node->left;
+        }
+        else
+        {
+            temp = st.top();
+            st.pop();
+            
+            if(temp > 0)
+            {
+                st.push(-temp);
+                node = ((Node*)temp)->right;
+            }
+            else
+            {
+                Delete_Node(((Node*)(-1 * temp)));
+                node = NULL;
+            }
+        }
+        
+    }
+}
+
+
+
+Tree::~Tree()
+{
+    // code deleting all the nodes of the tree
+    PostOrderDelete(this->root);
+};
 

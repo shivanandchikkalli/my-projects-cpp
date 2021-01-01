@@ -44,6 +44,8 @@ class Tree
         void BalanceTreePostDeletion(Node* node);
 
         void printTree(Node* node) const;
+        void Tree::PostOrderDelete(Node* node);
+
         int count(Node* node) const;
         int height(Node* node) const;
 };
