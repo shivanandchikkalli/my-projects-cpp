@@ -328,11 +328,11 @@ Node* Tree::RInsert(Node* node, int value)
 
     if(nodeBf == 2 && nodelBf == 1)
         return LLRotation(node);
-    if(nodeBf == 2 && nodelBf == -1)
+    else if(nodeBf == 2 && nodelBf == -1)
         return LRRotation(node);
-    if(nodeBf == -2 && noderBf == 1)
+    else if(nodeBf == -2 && noderBf == 1)
         return RLRotation(node);
-    if(nodeBf == -2 && noderBf == -1)
+    else if(nodeBf == -2 && noderBf == -1)
         return RRRotation(node);
     
     return node;
@@ -347,6 +347,33 @@ int Height(Node *p) {
     x = Height(p->left);
     y = Height(p->right);
     return x > y ? x + 1 : y + 1;
+}
+
+void Tree::BalanceTreePostDeletion(Node* node)
+{
+    if(node)
+    {
+        node->height = NodeHeight(node);
+
+        int nodeBf = BalanceFactor(node);
+        int nodelBf = BalanceFactor(node->left);
+        int noderBf = BalanceFactor(node->right);
+
+        if(nodeBf == 2 && nodelBf == 1)
+            node = LLRotation(node);
+        else if(nodeBf == 2 && nodelBf == -1)
+            node = LRRotation(node);
+        else if(nodeBf == 2 && nodelBf == 0)
+            node = LLRotation(node);            
+        else if(nodeBf == -2 && noderBf == 1)
+            node = RLRotation(node);
+        else if(nodeBf == -2 && noderBf == -1)
+            node = RRRotation(node);
+        else if(nodeBf == -2 && noderBf == 0)
+            node = RRRotation(node);      
+
+        BalanceTreePostDeletion(node->parent);
+    }
 }
 
 void Tree::Delete(int value)
@@ -381,6 +408,7 @@ void Tree::Delete_Node(Node* node)
             {
                 this->root = NULL;
             }
+            BalanceTreePostDeletion(node->parent);
             delete node;
         }
         //Case-2 if node has at-least one child

@@ -41,6 +41,8 @@ class Tree
         Node* RRRotation(Node* node);
         Node* RLRotation(Node* node);
 
+        void BalanceTreePostDeletion(Node* node);
+
         void printTree(Node* node) const;
         int count(Node* node) const;
         int height(Node* node) const;
