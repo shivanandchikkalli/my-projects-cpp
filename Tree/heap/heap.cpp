@@ -103,5 +103,5 @@ void Heap::HeapSort()
 
 Heap::~Heap()
 {
-    
+    delete [] this->array;
 }
