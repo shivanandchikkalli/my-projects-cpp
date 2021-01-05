@@ -14,6 +14,8 @@ int main()
 
     heap.Initialize(heapSize);
 
+    int array[7] = {45,54,75,13,72,38,43};
+
     for(int i = 0 ; i < heapSize ; i++)
     {
         std::cout << "Enter element " << std::endl;
@@ -28,6 +30,16 @@ int main()
     std::cout << std::endl;
     
     heap.HeapSort();
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    heap.Heapify2(array, 7);
+
+    for(int i = 0 ; i < 7 ; i++)
+    {
+        std::cout << array[i] << " ";
+    }
 
     return 0;
 }

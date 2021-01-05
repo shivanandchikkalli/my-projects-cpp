@@ -21,6 +21,9 @@ class Heap
         void Print();
 
         void HeapSort();
+
+        void Heapify(int array[], int size);
+        void Heapify2(int array[], int size);
 };
 
 #endif
