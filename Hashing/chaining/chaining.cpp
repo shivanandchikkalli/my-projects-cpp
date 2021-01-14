@@ -14,7 +14,18 @@ Chaining::Chaining()
 
 Chaining::~Chaining()
 {
-
+    for(int i = 0 ; i < 10 ; i++)
+    {
+        Node* node = this->array[i];
+        while(node)
+        {
+            Node* temp = node;
+            node = node->next;
+            delete temp;
+        }
+        this->array[i] = NULL;
+    }
+    delete[] this->array;
 }
 
 Node* get_node(int value)
