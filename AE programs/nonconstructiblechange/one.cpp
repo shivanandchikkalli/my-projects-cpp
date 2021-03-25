@@ -18,8 +18,7 @@ int nonConstructibleChange(vector<int> coins) {
 	{
 		if(val > smallestSum)
 			return smallestSum;
-		else if(val <= smallestSum)
-			smallestSum += val;
+		smallestSum += val;
 	}
 	
   return smallestSum;
