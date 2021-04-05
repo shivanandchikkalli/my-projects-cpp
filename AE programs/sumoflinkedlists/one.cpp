@@ -18,7 +18,7 @@ LinkedList *sumOfLinkedLists(LinkedList *linkedListOne,
 	LinkedList* first = linkedListOne;
 	LinkedList* second = linkedListTwo;
 	
-	while(first != NULL || second != NULL)
+	while(first != NULL || second != NULL || remainder != 0)
 	{
 		int currentSum = 0;
 		if(first != NULL){
@@ -42,16 +42,6 @@ LinkedList *sumOfLinkedLists(LinkedList *linkedListOne,
 		else
 			recent->next = newItem;
 		recent = newItem;
-	}
-	
-	if(remainder != 0){
-		LinkedList* newItem = new LinkedList(remainder);
-		newItem->next = NULL;
-		
-		if(result == NULL)
-			result = newItem;
-		else
-			recent->next = newItem;	
 	}
 	
   return result;
