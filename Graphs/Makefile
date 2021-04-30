@@ -1,9 +1,8 @@
 CC = g++
 CFLAGS = -Wall
-DEPS = vector.h
-OBJ = main.o vector.o
+OBJ = main.o
 
-%.o: %.c $(DEPS)
+%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 go: $(OBJ)
