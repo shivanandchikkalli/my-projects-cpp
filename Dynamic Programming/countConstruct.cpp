@@ -9,7 +9,7 @@ using namespace std;
 unordered_map<string, int> memo = {};
 
 
-int canConstruct(string target, vector<string> wordBank)
+int countConstruct(string target, vector<string> wordBank)
 {
 	if(target == "")
 		return true;
@@ -22,7 +22,7 @@ int canConstruct(string target, vector<string> wordBank)
 			if(position == 0) {
 				string substring = target.substr(word.size());
 				//cout << "=========== Target =========== => " << target << "   ******   " << word << " trimmed , result => " << substring << endl;
-				if(canConstruct(substring, wordBank))
+				if(countConstruct(substring, wordBank))
 					counter++;
 			}
 		}
@@ -30,7 +30,7 @@ int canConstruct(string target, vector<string> wordBank)
 	return counter;
 }
 
-int canConstructMomoized(string target, vector<string> wordBank)
+int countConstructMomoized(string target, vector<string> wordBank)
 {
 	if(target == "")
 		return true;
@@ -45,7 +45,7 @@ int canConstructMomoized(string target, vector<string> wordBank)
 			if(position == 0) {
 				string substring = target.substr(word.size());
 				//cout << "=========== Target =========== => " << target << "   ******   " << word << " trimmed , result => " << substring << endl;
-				if(canConstructMomoized(substring, wordBank)){
+				if(countConstructMomoized(substring, wordBank)){
 					memo[target]++;
 				}
 			}
@@ -63,14 +63,14 @@ int main() {
 	
 	vector<string> wordBank = {"a", "p", "ent", "enter", "", "ot", "o", "t"}; //{"ab", "abc", "cd", "def", "abcd"}; //{"bo", "rd", "ate", "t", "ska", "sk", "boar"};
 	
-	int result = canConstructMomoized(target, wordBank);
+	int result = countConstructMomoized(target, wordBank);
 	
 	cout << "enterapotentpot Result : " << result << endl;
 	
-	result = canConstructMomoized("purple", {"purp","p","ur","le","purpl"});
+	result = countConstructMomoized("purple", {"purp","p","ur","le","purpl"});
 	cout << "purple Result : " << result << endl;
 	
-	result = canConstructMomoized("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", {"e","ee","eee","eeee","eeeee","eeeeee","eeeeeee","eeeeeeee"});
+	result = countConstructMomoized("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", {"e","ee","eee","eeee","eeeee","eeeeee","eeeeeee","eeeeeeee"});
 	cout << "Result : " << result << endl;
 
     return 0;
