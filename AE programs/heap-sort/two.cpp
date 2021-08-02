@@ -28,9 +28,9 @@ void deleteElement(vector<int> &heap, int size)
 	while(index < size-1)
 	{
 		int indx = (index+1)*2-1;
-		if(indx < size-1 && heap.at(indx) > heap.at(indx+1))
+		if(indx < size-1 && heap.at(indx) < heap.at(indx+1))
 			indx = indx + 1;
-		if(indx < size && heap.at(indx) < heap.at(index)){
+		if(indx < size && heap.at(indx) > heap.at(index)){
 			swap(heap.at(indx), heap.at(index));
 			index = indx;
 		}
@@ -43,10 +43,13 @@ void deleteElement(vector<int> &heap, int size)
 // this is creating min-heap
 void createHeap(vector<int> &heap, int index)
 {
-	while(index > 0 && heap.at((index-1)/2) > heap.at(index))
+	while(index >=0)
 	{
-		swap(heap.at((index-1)/2) , heap.at(index));
-		index = (index-1)/2;
+		int parent = (index-1)/2;
+		if(heap.at(parent) >= heap.at(index))
+			break;
+		swap(heap.at(parent) , heap.at(index));
+		index = parent;
 	}
 }
 
@@ -60,7 +63,7 @@ void printArray(vector<int> array)
 // Time Complexity O(nlogn) and space complexity O(1)
 vector<int> heapSort(vector<int> array) {
 	printArray(array);
-	for(int i = 1 ; i < array.size() ; i++)
+	for(int i = 0 ; i < array.size() ; i++)
 		createHeap(array, i);
 	printArray(array);
 	for(int i = array.size() ; i > 0 ; i--)
